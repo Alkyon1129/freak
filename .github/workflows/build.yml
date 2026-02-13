@@ -1,0 +1,39 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build -c Release
+
+      - name: Package mod folder
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path out\PierrotTalk_Fair | Out-Null
+          Copy-Item manifest.json out\PierrotTalk_Fair\
+          Copy-Item -Recurse -Force i18n out\PierrotTalk_Fair\
+          Copy-Item -Recurse -Force assets out\PierrotTalk_Fair\
+          Copy-Item -Force bin\Release\net6.0\PierrotTalk_Fair.dll out\PierrotTalk_Fair\
+          Compress-Archive -Path out\PierrotTalk_Fair -DestinationPath out\PierrotTalk_Fair_Mod.zip -Force
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PierrotTalk_Fair_Mod
+          path: out/PierrotTalk_Fair_Mod.zip
