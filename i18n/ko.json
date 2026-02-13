@@ -1,0 +1,9 @@
+{
+  "npc.display_name": "Pierrot",
+  "dialogue.base": "..........^ (섬뜩한 미소를 짓고있는 피에로가 무언극을 하고 있다.)$0",
+  "choice.prompt": "",
+  "choice.cheer": "호응하기",
+  "choice.boo": "야유하기",
+  "dialogue.cheer": "......♥$1",
+  "dialogue.boo": ".......$2"
+}

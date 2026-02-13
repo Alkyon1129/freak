@@ -1,0 +1,9 @@
+{
+  "npc.display_name": "Pierrot",
+  "dialogue.base": "..........^ (A pierrot with a chilling smile performs a silent pantomime.)$0",
+  "choice.prompt": "",
+  "choice.cheer": "Cheer",
+  "choice.boo": "Boo",
+  "dialogue.cheer": "......♥$1",
+  "dialogue.boo": ".......$2"
+}

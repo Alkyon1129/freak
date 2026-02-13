@@ -1,0 +1,9 @@
+{
+  "Name": "Pierrot Talk (Fair)",
+  "Author": "You",
+  "Version": "1.0.0",
+  "Description": "Adds an interactive Pierrot (The Freak Circus) character to the Stardew Valley Fair.",
+  "UniqueID": "You.PierrotTalkFair",
+  "EntryDll": "PierrotTalk_Fair.dll",
+  "MinimumApiVersion": "4.0.0"
+}
